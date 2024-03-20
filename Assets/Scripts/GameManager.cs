@@ -7,6 +7,8 @@ using PathologicalGames;
 
 public class GameManager : MonoBehaviour
 {
+    public float shakeTolerate;
+    public static bool isShaked;
     public static bool isWin;
 
     [SerializeField] private TextMeshProUGUI playTimeText;
@@ -35,6 +37,16 @@ public class GameManager : MonoBehaviour
         {
             settingPanel.SetActive(true);
             PauseGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            var bullsEyeScript = spawnedBullsEye.GetComponent<BullsEye>();
+            if (bullsEyeScript.bigSphere.transform.localPosition.z <= bullsEyeScript.shakeRange - shakeTolerate)
+            {
+                isShaked = true;
+                bullsEyeScript.ShakeOffBigSphere();
+            }
         }
     }
 

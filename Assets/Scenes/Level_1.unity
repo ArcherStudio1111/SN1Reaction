@@ -1791,6 +1791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStartText: {fileID: 2120265813}
+  canvasLevel_4: {fileID: 0}
+  bulleyes: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,6 +3769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossbow_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 1519058888169846, guid: 20ca7c1d529346b4c9170e201c05e5f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721778755554346, guid: 20ca7c1d529346b4c9170e201c05e5f4, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -3880,7 +3886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1938648595
 Transform:
   m_ObjectHideFlags: 0

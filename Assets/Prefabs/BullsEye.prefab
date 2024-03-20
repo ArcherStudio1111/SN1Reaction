@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winTolerant: 20
-  rotateVelocity: 0
+  rotateVelocity: 1
   rb: {fileID: 6194680997101201172}
   bulletPart: {fileID: 8057215724018097933}
   afterProduct: {fileID: 818650796614448212}
