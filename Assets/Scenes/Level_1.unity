@@ -595,6 +595,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeTolerate: -0.0134
+  gunModel: {fileID: 2087694833}
+  rayModel: {fileID: 657490334}
+  gun: {fileID: 1192987835}
   playTimeText: {fileID: 143775433}
   endTimeText: {fileID: 850874242}
   settingPanel: {fileID: 1756790877}
@@ -1560,7 +1563,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657490333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3846,6 +3849,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23467080017660350, guid: 20ca7c1d529346b4c9170e201c05e5f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4660,6 +4668,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1646149349380061439, guid: 047d8ae5143534434ae148de9defea6b,
     type: 3}
   m_PrefabInstance: {fileID: 2047932692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2087694833 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23467080017660350, guid: 20ca7c1d529346b4c9170e201c05e5f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1882993633}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2120265811
 GameObject:
