@@ -594,6 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de3e93c6310a9b4d9bb6677848f86e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeTolerate: -0.0134
   playTimeText: {fileID: 143775433}
   endTimeText: {fileID: 850874242}
   settingPanel: {fileID: 1756790877}
@@ -3773,6 +3774,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1768035638187606, guid: 20ca7c1d529346b4c9170e201c05e5f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721778755554346, guid: 20ca7c1d529346b4c9170e201c05e5f4, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -3886,7 +3891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1938648595
 Transform:
   m_ObjectHideFlags: 0

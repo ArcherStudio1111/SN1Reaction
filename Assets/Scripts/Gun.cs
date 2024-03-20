@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        SpawnBullet();
+        //SpawnBullet();
     }
 
     private void Update()
@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void SpawnBullet()
+    public void SpawnBullet()
     {
         bulletClone = pool.Spawn(bullet, transform);
         bulletClone.localPosition = gunMuzzle.localPosition;
@@ -59,7 +59,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (!isCharging && !GameManager.isWin)
+        if (!isCharging && !GameManager.isWin && GameManager.isShaked)
         {
             bulletClone.SetParent(null);
             var bullsEye = FindFirstObjectByType<BullsEye>().GetComponent<Transform>();

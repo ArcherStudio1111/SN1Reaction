@@ -70,7 +70,7 @@ public class BullsEye : MonoBehaviour
         if (gun != null)
         {
             gunAngle = Vector3.Angle(gun.gunMuzzle.forward, transform.forward);
-            gun.RemindShootChance(gunAngle >= 187.5f - winTolerant);
+            gun.RemindShootChance(gunAngle >= 187.5f - winTolerant || (gunAngle <= winTolerant - 5f && gunAngle >= 5f));
         }
     }
 
@@ -167,7 +167,7 @@ public class BullsEye : MonoBehaviour
         {
             MoveFaster();
             var bulletAngle = Vector3.Angle(collision.transform.forward, transform.forward);
-            if (bulletAngle >= 180 - winTolerant)
+            if (bulletAngle >= 180 - winTolerant || (bulletAngle <= winTolerant && bulletAngle >=0))
             {
                 GameWin();
             }
