@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 using Random = UnityEngine.Random;
 
 public class BullsEye : MonoBehaviour
@@ -22,16 +21,16 @@ public class BullsEye : MonoBehaviour
     [SerializeField] private Transform cube;
     [SerializeField] private Transform smallSphere;
     [SerializeField] private Transform triangle;
+    [SerializeField] private Transform bigSphere;
 
     private Vector3 RandomVector3;
     private float moveFasterPara = 5f;
     private Gun gun;
     private float gunAngle;
-    private Transform mainCamera;
 
-    private void Awake()
+    private void Start()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        MoveLoop();
     }
 
     private void OnEnable()
@@ -40,6 +39,14 @@ public class BullsEye : MonoBehaviour
         SetVelocities();
     }
 
+    private void MoveLoop()
+    {
+        cube.DOLocalMoveY(0.03f, 1.1f).SetLoops(-1, LoopType.Yoyo);
+        smallSphere.DOLocalMove(new Vector3(0.0251f, -0.0107f, 0), 1.3f).SetLoops(-1, LoopType.Yoyo);
+        triangle.DOLocalMove(new Vector3(-0.0161f, -0.0208f, 0), 1.5f).SetLoops(-1, LoopType.Yoyo);
+        bigSphere.DOLocalMoveZ(-0.0534f, 1.7f).SetLoops(-1, LoopType.Yoyo);
+    }
+    
     private void Update()
     {
         DetectGun();
