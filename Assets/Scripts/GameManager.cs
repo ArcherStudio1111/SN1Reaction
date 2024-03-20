@@ -7,8 +7,13 @@ using PathologicalGames;
 
 public class GameManager : MonoBehaviour
 {
+    public float shakeTolerate;
+    public static bool isShaked;
     public static bool isWin;
-
+    public MeshRenderer gunModel;
+    public LineRenderer rayModel;
+    public Gun gun;
+    
     [SerializeField] private TextMeshProUGUI playTimeText;
     [SerializeField] private TextMeshProUGUI endTimeText;
     [SerializeField] private GameObject settingPanel;
@@ -35,6 +40,19 @@ public class GameManager : MonoBehaviour
         {
             settingPanel.SetActive(true);
             PauseGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            var bullsEyeScript = spawnedBullsEye.GetComponent<BullsEye>();
+            if (bullsEyeScript.bigSphere.transform.localPosition.z <= bullsEyeScript.shakeRange - shakeTolerate)
+            {
+                gun.SpawnBullet();
+                gunModel.enabled = true;
+                rayModel.enabled = true;
+                isShaked = true;
+                bullsEyeScript.ShakeOffBigSphere();
+            }
         }
     }
 

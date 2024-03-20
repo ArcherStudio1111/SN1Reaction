@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 using Random = UnityEngine.Random;
 
 public class BullsEye : MonoBehaviour
 {
+    public float shakeRange = -0.0534f;
     public float winTolerant;
     public float rotateVelocity;
 
@@ -22,16 +22,16 @@ public class BullsEye : MonoBehaviour
     [SerializeField] private Transform cube;
     [SerializeField] private Transform smallSphere;
     [SerializeField] private Transform triangle;
+    public Transform bigSphere;
 
     private Vector3 RandomVector3;
     private float moveFasterPara = 5f;
     private Gun gun;
     private float gunAngle;
-    private Transform mainCamera;
 
-    private void Awake()
+    private void Start()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        MoveLoop();
     }
 
     private void OnEnable()
@@ -40,10 +40,24 @@ public class BullsEye : MonoBehaviour
         SetVelocities();
     }
 
+    private void MoveLoop()
+    {
+        cube.DOLocalMoveY(0.03f, 1.1f).SetLoops(-1, LoopType.Yoyo);
+        smallSphere.DOLocalMove(new Vector3(0.0251f, -0.0107f, 0), 1.3f).SetLoops(-1, LoopType.Yoyo);
+        triangle.DOLocalMove(new Vector3(-0.0161f, -0.0208f, 0), 1.5f).SetLoops(-1, LoopType.Yoyo);
+        bigSphere.DOLocalMoveZ(shakeRange, 1.7f).SetLoops(-1, LoopType.Yoyo);
+    }
+    
     private void Update()
     {
         DetectGun();
         ChangeAngularVelocities();
+        if (GameManager.isShaked)
+        {
+            bigSphere.transform.SetParent(null);
+            bigSphere.transform.Translate(new Vector3(0, -1, -1) * Time.deltaTime * 1f);
+        }
+        
         if (GameManager.isWin)
         {
             afterProduct.transform.SetParent(null);
@@ -56,7 +70,7 @@ public class BullsEye : MonoBehaviour
         if (gun != null)
         {
             gunAngle = Vector3.Angle(gun.gunMuzzle.forward, transform.forward);
-            gun.RemindShootChance(gunAngle >= 187.5f - winTolerant);
+            gun.RemindShootChance(gunAngle >= 187.5f - winTolerant || (gunAngle <= winTolerant - 5f && gunAngle >= 5f));
         }
     }
 
@@ -153,7 +167,7 @@ public class BullsEye : MonoBehaviour
         {
             MoveFaster();
             var bulletAngle = Vector3.Angle(collision.transform.forward, transform.forward);
-            if (bulletAngle >= 180 - winTolerant)
+            if (bulletAngle >= 180 - winTolerant || (bulletAngle <= winTolerant && bulletAngle >=0))
             {
                 GameWin();
             }
@@ -186,5 +200,14 @@ public class BullsEye : MonoBehaviour
         Time.timeScale = 0.33f;
         yield return new WaitForSeconds(4 * Time.timeScale);
         GameWinEvent?.Invoke();
+    }
+
+    public void ShakeOffBigSphere()
+    {
+        bigSphere.DOKill(); 
+        bigSphere.SetParent(null);
+        smallSphere.localRotation = Quaternion.identity;
+        triangle.localRotation = Quaternion.identity;
+        cube.localRotation = Quaternion.identity;
     }
 }
