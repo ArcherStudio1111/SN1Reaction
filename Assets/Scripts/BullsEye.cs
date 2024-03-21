@@ -23,6 +23,7 @@ public class BullsEye : MonoBehaviour
     [SerializeField] private Transform smallSphere;
     [SerializeField] private Transform triangle;
     public Transform bigSphere;
+    public Transform bulletEgg;
 
     private Vector3 RandomVector3;
     private float moveFasterPara = 5f;
@@ -46,12 +47,19 @@ public class BullsEye : MonoBehaviour
         smallSphere.DOLocalMove(new Vector3(0.0251f, -0.0107f, 0), 1.3f).SetLoops(-1, LoopType.Yoyo);
         triangle.DOLocalMove(new Vector3(-0.0161f, -0.0208f, 0), 1.5f).SetLoops(-1, LoopType.Yoyo);
         bigSphere.DOLocalMoveZ(shakeRange, 1.7f).SetLoops(-1, LoopType.Yoyo);
+        bulletEgg.DOLocalMoveZ(0.0692f, 1.9f).SetLoops(-1, LoopType.Yoyo);
     }
     
     private void Update()
     {
         DetectGun();
         ChangeAngularVelocities();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            rotateVelocity = rotateVelocity == 0 ? 1 : 0;
+        }
+        
         if (GameManager.isShaked)
         {
             bigSphere.transform.SetParent(null);
@@ -80,12 +88,14 @@ public class BullsEye : MonoBehaviour
 
         switch (SceneManager.GetActiveScene().name)
         {
+            /*
             case "Level_1":
                 rb.angularVelocity = Vector3.forward * rotateVelocity;
                 break;
             case "Level_2":
                 rb.angularVelocity = Vector3.up * rotateVelocity;
                 break;
+                */
             default:
                 RandomVector3 = new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f));
                 //rb.angularVelocity = RandomVector3.normalized * rotateVelocity;
@@ -101,10 +111,12 @@ public class BullsEye : MonoBehaviour
     {
         switch (SceneManager.GetActiveScene().name)
         {
+            /*
             case "Level_1":
                 break;
             case "Level_2":
                 break;
+                */
             default:
                 switch (zeroPos)
                 { 

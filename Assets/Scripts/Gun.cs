@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathologicalGames;
+using UnityEngine.SceneManagement;
 
 public class Gun : MonoBehaviour
 {
@@ -94,11 +95,9 @@ public class Gun : MonoBehaviour
         isCharging = true;
         missTextObject.SetActive(true);
         yield return new WaitForSeconds(chargeTime);
-        aimRay.SetActive(true);
-        FindFirstObjectByType<GameManager>().SpawnBullsEye();
-        RecycleBullets();
-        missTextObject.SetActive(false);
-        SpawnBullet();
+        var gameManager = FindFirstObjectByType<GameManager>();
+        gameManager.ResetGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnGameWin()

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI playTimeText;
     [SerializeField] private TextMeshProUGUI endTimeText;
+    [SerializeField] private GameObject shakeText;
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private SpawnPool spawnPool;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
             PauseGame();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isShaked)
         {
             var bullsEyeScript = spawnedBullsEye.GetComponent<BullsEye>();
             if (bullsEyeScript.bigSphere.transform.localPosition.z <= bullsEyeScript.shakeRange - shakeTolerate)
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
                 gunModel.enabled = true;
                 rayModel.enabled = true;
                 isShaked = true;
+                shakeText.SetActive(false);
                 bullsEyeScript.ShakeOffBigSphere();
             }
         }
@@ -87,6 +89,7 @@ public class GameManager : MonoBehaviour
     {
         ResumeGame();
         isWin = false;
+        isShaked = false;
     }
 
     private void OnGameWin()
