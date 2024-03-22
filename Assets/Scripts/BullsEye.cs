@@ -77,6 +77,11 @@ public class BullsEye : MonoBehaviour
 
     private void DetectGun()
     {
+        if (SceneManager.GetActiveScene().name == "Level_1")
+        {
+            return;
+        }
+        
         if (gun != null)
         {
             gunAngle = Vector3.Angle(gun.gunMuzzle.forward, transform.forward);
@@ -186,11 +191,17 @@ public class BullsEye : MonoBehaviour
             if (bulletAngle >= 180 - winTolerant)
             {
                 GameWin();
+                cube.localRotation = Quaternion.Euler(-19.5f, 0, 0);
+                triangle.localRotation = Quaternion.Euler(0, -19.5f, 0);
+                smallSphere.localRotation = Quaternion.Euler(0, 19.5f, 0);
             }
             else if(bulletAngle <= winTolerant && bulletAngle >=0)
             {
                 bulletPart.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 GameWin();
+                cube.localRotation = Quaternion.Euler(19.5f, 0, 0);
+                triangle.localRotation = Quaternion.Euler(0, 19.5f, 0);
+                smallSphere.localRotation = Quaternion.Euler(0, -19.5f, 0);
             }
             else
             {
@@ -210,9 +221,6 @@ public class BullsEye : MonoBehaviour
     {
         bulletPart.SetActive(true);
         FindFirstObjectByType<Gun>().RecycleBullets();
-        cube.localRotation = Quaternion.Euler(-19.5f, 0, 0);
-        triangle.localRotation = Quaternion.Euler(0, -19.5f, 0);
-        smallSphere.localRotation = Quaternion.Euler(0, 19.5f, 0);
         StartCoroutine(ShortPauseGame());
     }
 
