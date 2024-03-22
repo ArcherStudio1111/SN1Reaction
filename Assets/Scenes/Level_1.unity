@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de3e93c6310a9b4d9bb6677848f86e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeTolerate: -0.0134
+  shakeTolerate: -0.01
   gunModel: {fileID: 2087694833}
   rayModel: {fileID: 657490334}
   gun: {fileID: 1192987835}
@@ -2568,6 +2568,8 @@ MonoBehaviour:
   missTextObject: {fileID: 1317861111}
   winTextObject: {fileID: 524510248}
   shootChanceSound: {fileID: 1192987837}
+  shakeAmount: 0.04
+  shakeDuration: 0.5
 --- !u!114 &1192987836
 MonoBehaviour:
   m_ObjectHideFlags: 0

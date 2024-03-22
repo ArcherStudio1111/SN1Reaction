@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class BullsEye : MonoBehaviour
 {
-    public float shakeRange = -0.0534f;
+    public float shakeRange = -0.075f;
+    public float shakeTime;
     public float winTolerant;
     public float rotateVelocity;
 
@@ -25,7 +26,7 @@ public class BullsEye : MonoBehaviour
     public Transform bigSphere;
     public Transform bulletEgg;
 
-    private Vector3 RandomVector3;
+    private Vector3 randomVector3;
     private float moveFasterPara = 5f;
     private Gun gun;
     private float gunAngle;
@@ -43,11 +44,11 @@ public class BullsEye : MonoBehaviour
 
     private void MoveLoop()
     {
-        cube.DOLocalMoveY(0.03f, 1.1f).SetLoops(-1, LoopType.Yoyo);
-        smallSphere.DOLocalMove(new Vector3(0.0251f, -0.0107f, 0), 1.3f).SetLoops(-1, LoopType.Yoyo);
-        triangle.DOLocalMove(new Vector3(-0.0161f, -0.0208f, 0), 1.5f).SetLoops(-1, LoopType.Yoyo);
-        bigSphere.DOLocalMoveZ(shakeRange, 1.7f).SetLoops(-1, LoopType.Yoyo);
-        bulletEgg.DOLocalMoveZ(0.0692f, 1.9f).SetLoops(-1, LoopType.Yoyo);
+        cube.DOLocalMoveY(0.0715f, shakeTime + 0.2f).SetLoops(-1, LoopType.Yoyo);
+        smallSphere.DOLocalMove(new Vector3(0.061f, -0.037f, 0.022f), shakeTime + 0.4f).SetLoops(-1, LoopType.Yoyo);
+        triangle.DOLocalMove(new Vector3(-0.051f, -0.0445f, 0.018f), shakeTime + 0.6f).SetLoops(-1, LoopType.Yoyo);
+        bigSphere.DOLocalMoveZ(shakeRange, shakeTime).SetLoops(-1, LoopType.Yoyo);
+        bulletEgg.DOLocalMoveZ(0.0692f, shakeTime + 0.8f).SetLoops(-1, LoopType.Yoyo);
     }
     
     private void Update()
@@ -57,7 +58,7 @@ public class BullsEye : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            rotateVelocity = rotateVelocity == 0 ? 1 : 0;
+            FreezeResumeRotate();
         }
         
         if (GameManager.isShaked)
@@ -97,7 +98,7 @@ public class BullsEye : MonoBehaviour
                 break;
                 */
             default:
-                RandomVector3 = new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f));
+                randomVector3 = new Vector3(Random.Range(-180f, 180f), Random.Range(-180f, 180f), Random.Range(-180f, 180f));
                 //rb.angularVelocity = RandomVector3.normalized * rotateVelocity;
                 break;
         }
@@ -167,10 +168,7 @@ public class BullsEye : MonoBehaviour
 
     public void FreezeResumeRotate()
     {
-        if (SceneManager.GetActiveScene().name != "Level_3")
-        {
-            rb.angularVelocity = rb.angularVelocity == Vector3.zero ? RandomVector3.normalized * rotateVelocity : Vector3.zero;
-        }
+        rb.angularVelocity = rb.angularVelocity == Vector3.zero ? randomVector3.normalized * rotateVelocity : Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)

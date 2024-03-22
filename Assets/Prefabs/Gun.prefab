@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletVelocity: 1
   chargeTime: 2
+  gunMuzzle: {fileID: 0}
   pool: {fileID: 6529217349547645242}
   energyBar: {fileID: 0}
   mainCamera: {fileID: 0}
@@ -142,6 +143,7 @@ MonoBehaviour:
   aimRay: {fileID: 2485147797793979499}
   missTextObject: {fileID: 4101388343696628604}
   winTextObject: {fileID: 5934012194210149933}
+  shootChanceSound: {fileID: 0}
 --- !u!1 &2485147797793979499
 GameObject:
   m_ObjectHideFlags: 0

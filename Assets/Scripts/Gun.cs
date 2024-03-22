@@ -24,6 +24,14 @@ public class Gun : MonoBehaviour
     private bool currentShootChance;
     private Transform bulletClone;
 
+    [Header("Shake")] 
+    public float shakeAmount;
+    public  float shakeDuration;
+
+    private readonly Vector3 cameraOriginPos = new Vector3(-0.986074448f, 1.85965788f, -2.61851311f);
+    private float shakeTimer;
+    private bool isShaking;
+    
     private void Awake()
     {
         mainCamera.SetParent(transform);
@@ -43,10 +51,31 @@ public class Gun : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!GameManager.isWin)
+        ShakeCamera();
+        
+        if (!GameManager.isWin && !isShaking)
         {
-            mainCamera.localPosition = new Vector3(-0.986074448f, 1.85965788f, -2.61851311f);
+            mainCamera.localPosition = cameraOriginPos;
         }
+    }
+    
+    private void ShakeCamera()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isShaking = true;
+        }
+        
+        if (isShaking)
+        {
+            mainCamera.localPosition = cameraOriginPos + Random.insideUnitSphere * shakeAmount;
+            shakeTimer += Time.deltaTime;
+            if (shakeTimer >= shakeDuration)
+            {
+                isShaking = false;
+                shakeTimer = 0;
+            }
+        } 
     }
 
     public void SpawnBullet()

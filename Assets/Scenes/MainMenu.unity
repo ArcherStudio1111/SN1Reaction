@@ -923,6 +923,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7163617058318520286, guid: d651eb312cebe964286f680658b4988a,
+        type: 3}
+      propertyPath: shakeTime
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8057215724018097933, guid: d651eb312cebe964286f680658b4988a,
         type: 3}
       propertyPath: m_IsActive

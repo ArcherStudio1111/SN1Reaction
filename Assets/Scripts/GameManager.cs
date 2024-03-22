@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using PathologicalGames;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private float playTime;
     private Transform spawnedBullsEye;
-
+    
     private void Awake()
     {
         BullsEye.GameWinEvent += OnGameWin;
@@ -37,14 +38,16 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CountTime();
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             settingPanel.SetActive(true);
             PauseGame();
         }
-
+        
         if (Input.GetKeyDown(KeyCode.Space) && !isShaked)
         {
+
             var bullsEyeScript = spawnedBullsEye.GetComponent<BullsEye>();
             if (bullsEyeScript.bigSphere.transform.localPosition.z <= bullsEyeScript.shakeRange - shakeTolerate)
             {
