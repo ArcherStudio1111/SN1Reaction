@@ -15,7 +15,7 @@ public class CanvasManager : MonoBehaviour
     void Start()
     {
         levelStartText.DOFade(0, 1)
-                .SetDelay(4)
+                .SetDelay(1)
                 .OnComplete(() => levelStartText.gameObject.SetActive(false));
 
         if (SceneManager.GetActiveScene().name == "Level_4")

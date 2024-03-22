@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using PathologicalGames;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -11,9 +12,6 @@ public class GameManager : MonoBehaviour
     public float shakeTolerate;
     public static bool isShaked;
     public static bool isWin;
-    public MeshRenderer gunModel;
-    public LineRenderer rayModel;
-    public Gun gun;
     
     [SerializeField] private TextMeshProUGUI playTimeText;
     [SerializeField] private TextMeshProUGUI endTimeText;
@@ -47,19 +45,17 @@ public class GameManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && !isShaked)
         {
-
             var bullsEyeScript = spawnedBullsEye.GetComponent<BullsEye>();
             if (bullsEyeScript.bigSphere.transform.localPosition.z <= bullsEyeScript.shakeRange - shakeTolerate)
             {
-                gun.SpawnBullet();
-                gunModel.enabled = true;
-                rayModel.enabled = true;
                 isShaked = true;
                 shakeText.SetActive(false);
                 bullsEyeScript.ShakeOffBigSphere();
+                OnGameWin();
             }
         }
     }
+    
 
     public Transform SpawnBullsEye()
     {
@@ -67,7 +63,16 @@ public class GameManager : MonoBehaviour
         {
             spawnPool.Despawn(spawnedBullsEye);
         }
-        spawnedBullsEye = spawnPool.Spawn("BullsEye");
+
+        var sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Level_1")
+        {
+            spawnedBullsEye = spawnPool.Spawn("BullsEye");
+        }
+        else if(sceneName == "Level_2")
+        {
+            spawnedBullsEye = spawnPool.Spawn("PartBullsEye");
+        }
         return spawnedBullsEye;
     }
 

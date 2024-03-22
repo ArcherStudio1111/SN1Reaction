@@ -594,8 +594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de3e93c6310a9b4d9bb6677848f86e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeTolerate: 0
   playTimeText: {fileID: 143775433}
   endTimeText: {fileID: 850874242}
+  shakeText: {fileID: 0}
   settingPanel: {fileID: 1756790877}
   winPanel: {fileID: 18897592}
   spawnPool: {fileID: 260970271}
@@ -626,14 +628,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: BullsEye
+  poolName: PartBullsEye
   matchPoolScale: 0
   matchPoolLayer: 0
   dontReparent: 1
   _dontDestroyOnLoad: 0
   logMessages: 0
   _perPrefabPoolOptions:
-  - prefab: {fileID: 8840413716570464763, guid: d651eb312cebe964286f680658b4988a,
+  - prefab: {fileID: 8840413716570464763, guid: a3f9fe7df30940346bbf425c034753a2,
       type: 3}
     preloadAmount: 2
     preloadTime: 0
@@ -1791,6 +1793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStartText: {fileID: 1687646025}
+  canvasLevel_4: {fileID: 0}
+  bulleyes: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2564,8 @@ MonoBehaviour:
   missTextObject: {fileID: 1317861111}
   winTextObject: {fileID: 524510248}
   shootChanceSound: {fileID: 1192987837}
+  shakeAmount: 0
+  shakeDuration: 0
 --- !u!114 &1192987836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3346,9 +3352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 2
-
-    Training for real life situations'
+  m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5e77be49b6c26e4ab12343ae8494f87, type: 2}
   m_sharedMaterial: {fileID: -4903693719337811141, guid: b5e77be49b6c26e4ab12343ae8494f87,
@@ -4424,7 +4428,7 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: Next Level
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4640,7 +4644,7 @@ PrefabInstance:
     - target: {fileID: 1646149350857554226, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level_3
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350857554226, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}

@@ -595,9 +595,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeTolerate: -0.01
-  gunModel: {fileID: 2087694833}
-  rayModel: {fileID: 657490334}
-  gun: {fileID: 1192987835}
   playTimeText: {fileID: 143775433}
   endTimeText: {fileID: 850874242}
   shakeText: {fileID: 1885563086}
@@ -1425,7 +1422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &648610042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4445,7 +4442,7 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: Main Menu
+      value: Next Level
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4661,7 +4658,7 @@ PrefabInstance:
     - target: {fileID: 1646149350857554226, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MainMenu
+      value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350857554226, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4807,12 +4804,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1646149349380061439, guid: 047d8ae5143534434ae148de9defea6b,
     type: 3}
   m_PrefabInstance: {fileID: 2047932692}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &2087694833 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23467080017660350, guid: 20ca7c1d529346b4c9170e201c05e5f4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1882993633}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2120265811
 GameObject:

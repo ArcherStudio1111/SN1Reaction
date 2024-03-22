@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathologicalGames;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class Gun : MonoBehaviour
@@ -40,13 +41,15 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        //SpawnBullet();
+        if (SceneManager.GetActiveScene().name != "Level_1")
+        {
+            SpawnBullet();
+        }
     }
 
     private void Update()
     {
         Charge();
-        ControlTime();
     }
 
     private void LateUpdate()
@@ -61,7 +64,7 @@ public class Gun : MonoBehaviour
     
     private void ShakeCamera()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !GameManager.isShaked)
         {
             isShaking = true;
         }
@@ -89,7 +92,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (!isCharging && !GameManager.isWin && GameManager.isShaked)
+        if (!isCharging && !GameManager.isWin)
         {
             bulletClone.SetParent(null);
             var bullsEye = FindFirstObjectByType<BullsEye>().GetComponent<Transform>();
@@ -145,15 +148,6 @@ public class Gun : MonoBehaviour
                 chargeTimer = 0;
                 isCharging = false;
             }
-        }
-    }
-
-    private void ControlTime()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            var bullsEye = FindFirstObjectByType<BullsEye>();
-            bullsEye.FreezeResumeRotate();
         }
     }
 

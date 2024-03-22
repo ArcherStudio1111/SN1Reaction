@@ -30,6 +30,7 @@ public class BullsEye : MonoBehaviour
     private float moveFasterPara = 5f;
     private Gun gun;
     private float gunAngle;
+    private bool isFreezing;
 
     private void Start()
     {
@@ -110,6 +111,10 @@ public class BullsEye : MonoBehaviour
 
     private void ChangeAngularVelocities()
     {
+        if (isFreezing)
+        {
+            return;
+        }
         switch (SceneManager.GetActiveScene().name)
         {
             /*
@@ -168,6 +173,7 @@ public class BullsEye : MonoBehaviour
 
     public void FreezeResumeRotate()
     {
+        isFreezing = !isFreezing;
         rb.angularVelocity = rb.angularVelocity == Vector3.zero ? randomVector3.normalized * rotateVelocity : Vector3.zero;
     }
 
@@ -177,8 +183,13 @@ public class BullsEye : MonoBehaviour
         {
             MoveFaster();
             var bulletAngle = Vector3.Angle(collision.transform.forward, transform.forward);
-            if (bulletAngle >= 180 - winTolerant || (bulletAngle <= winTolerant && bulletAngle >=0))
+            if (bulletAngle >= 180 - winTolerant)
             {
+                GameWin();
+            }
+            else if(bulletAngle <= winTolerant && bulletAngle >=0)
+            {
+                bulletPart.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 GameWin();
             }
             else
