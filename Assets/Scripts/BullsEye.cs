@@ -198,6 +198,8 @@ public class BullsEye : MonoBehaviour
             else if(bulletAngle <= winTolerant && bulletAngle >=0)
             {
                 bulletPart.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                bulletPart.transform.localPosition = new Vector3(0, 0, -0.02f);
+                bulletPart.transform.DOKill();
                 GameWin();
                 cube.localRotation = Quaternion.Euler(19.5f, 0, 0);
                 triangle.localRotation = Quaternion.Euler(0, 19.5f, 0);
