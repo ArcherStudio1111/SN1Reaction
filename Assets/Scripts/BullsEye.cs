@@ -46,8 +46,8 @@ public class BullsEye : MonoBehaviour
     private void MoveLoop()
     {
         cube.DOLocalMoveY(0.0715f, shakeTime + 0.2f).SetLoops(-1, LoopType.Yoyo);
-        smallSphere.DOLocalMove(new Vector3(0.061f, -0.037f, 0.022f), shakeTime + 0.4f).SetLoops(-1, LoopType.Yoyo);
-        triangle.DOLocalMove(new Vector3(-0.051f, -0.0445f, 0.018f), shakeTime + 0.6f).SetLoops(-1, LoopType.Yoyo);
+        smallSphere.DOLocalMove(new Vector3(0.071f, -0.0438f, 0.0233f), shakeTime + 0.4f).SetLoops(-1, LoopType.Yoyo);
+        triangle.DOLocalMove(new Vector3(-0.056f, -0.05f, 0.02f), shakeTime + 0.6f).SetLoops(-1, LoopType.Yoyo);
         bigSphere.DOLocalMoveZ(shakeRange, shakeTime).SetLoops(-1, LoopType.Yoyo);
         bulletEgg.DOLocalMoveZ(0.0692f, shakeTime + 0.8f).SetLoops(-1, LoopType.Yoyo);
     }
