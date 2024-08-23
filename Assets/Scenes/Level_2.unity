@@ -4153,7 +4153,7 @@ PrefabInstance:
     - target: {fileID: 1646149349380061436, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1646149349380061439, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4278,7 +4278,7 @@ PrefabInstance:
     - target: {fileID: 1646149349714317131, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: YOU WIN!
+      value: STAGE CLEAR!
       objectReference: {fileID: 0}
     - target: {fileID: 1646149349714317131, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}

@@ -7,7 +7,11 @@ public class SceneLoader : MonoBehaviour
 {
     public void ChangeScene(string sceneName)
     {
-        if (SceneManager.GetActiveScene().name.Equals("Level_1") && GameManager.Lv1_h1Win && GameManager.Lv1_h2Win)
+        if (SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
+            SceneManager.LoadScene("Level_1");
+        }
+        else if (SceneManager.GetActiveScene().name.Equals("Level_1") && GameManager.Lv1_h1Win && GameManager.Lv1_h2Win)
         {
             SceneManager.LoadScene("Level_2");
         }
