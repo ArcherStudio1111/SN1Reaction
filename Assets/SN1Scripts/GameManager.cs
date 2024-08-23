@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             PauseGame();
         }
         
-        if (Input.GetKeyDown(KeyCode.Space) && !isShaked)
+        /*if (Input.GetKeyDown(KeyCode.Space) && !isShaked)
         {
             var bullsEyeScript = spawnedBullsEye.GetComponent<BullsEye>();
             if (bullsEyeScript.bigSphere.transform.localPosition.z <= bullsEyeScript.shakeRange - shakeTolerate)
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
                 bullsEyeScript.ShakeOffBigSphere();
                 OnGameWin();
             }
-        }
+        }*/
     }
     
 
@@ -67,11 +67,13 @@ public class GameManager : MonoBehaviour
         var sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "Level_1")
         {
-            spawnedBullsEye = spawnPool.Spawn("BullsEye");
+            spawnedBullsEye = spawnPool.Spawn("Reactant",
+                new Vector3(0.00627562404f,0.0124644525f,-0.00520026684f),
+                Quaternion.Euler(new Vector3(68.3502197f,26.4641685f,358.338013f)));
         }
         else if(sceneName == "Level_2")
         {
-            spawnedBullsEye = spawnPool.Spawn("PartBullsEye");
+            spawnedBullsEye = spawnPool.Spawn("Reactant");
         }
         return spawnedBullsEye;
     }

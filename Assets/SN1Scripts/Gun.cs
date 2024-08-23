@@ -41,10 +41,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name != "Level_1")
-        {
-            SpawnBullet();
-        }
+        SpawnBullet();
     }
 
     private void Update()
@@ -66,7 +63,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !GameManager.isShaked)
         {
-            isShaking = true;
+            //isShaking = true;
         }
         
         if (isShaking)
@@ -94,8 +91,9 @@ public class Gun : MonoBehaviour
     {
         if (!isCharging && !GameManager.isWin)
         {
+            isCharging = true;
             bulletClone.SetParent(null);
-            var bullsEye = FindFirstObjectByType<BullsEye>().GetComponent<Transform>();
+            var bullsEye = GameObject.FindGameObjectWithTag("BullsEye").transform;
             bulletClone.LookAt(bullsEye.position);
             var bulletRb = bulletClone.GetComponent<Rigidbody>();
             bulletRb.velocity = (bullsEye.position - bulletClone.position).normalized * bulletVelocity;

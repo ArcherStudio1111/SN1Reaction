@@ -7,14 +7,10 @@ public class Reactant : MonoBehaviour
     public float rotateSpeed;
     
     [SerializeField] private Transform bigCenter;
-    
-    private bool _isShooted;
+    [SerializeField] private Transform axis;
 
     private void Update()
     {
-        if (!_isShooted)
-        { 
-            bigCenter.RotateAround(bigCenter.position, Vector3.forward, rotateSpeed * Time.deltaTime);
-        }
+        bigCenter.RotateAround(bigCenter.position, axis.up, rotateSpeed * Time.deltaTime);
     }
 }
