@@ -2555,7 +2555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletVelocity: 1
-  chargeTime: 2
+  chargeTime: 5
   gunMuzzle: {fileID: 1662750608}
   pool: {fileID: 1192987836}
   energyBar: {fileID: 1749723771}
