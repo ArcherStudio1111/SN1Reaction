@@ -12,7 +12,11 @@ public class GameManager : MonoBehaviour
     public float shakeTolerate;
     public static bool isShaked;
     public static bool isWin;
-    
+    public static bool Lv1_h1Win;
+    public static bool Lv1_h2Win;
+    public static bool Lv2_h1Win;
+    public static bool Lv2_h2Win;
+
     [SerializeField] private TextMeshProUGUI playTimeText;
     [SerializeField] private TextMeshProUGUI endTimeText;
     [SerializeField] private GameObject shakeText;
@@ -64,18 +68,11 @@ public class GameManager : MonoBehaviour
         {
             spawnPool.Despawn(spawnedBullsEye);
         }
-
-        var sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Level_1")
-        {
-            spawnedBullsEye = spawnPool.Spawn("Reactant",
-                new Vector3(0.00627562404f,0.0124644525f,-0.00520026684f),
-                Quaternion.Euler(new Vector3(68.3502197f,26.4641685f,358.338013f)));
-        }
-        else if(sceneName == "Level_2")
-        {
-            spawnedBullsEye = spawnPool.Spawn("Reactant");
-        }
+        
+        spawnedBullsEye = spawnPool.Spawn("Reactant",
+            new Vector3(0.00627562404f, 0.0124644525f, -0.00520026684f),
+            Quaternion.Euler(new Vector3(68.3502197f, 26.4641685f, 358.338013f)));
+        
         return spawnedBullsEye;
     }
 

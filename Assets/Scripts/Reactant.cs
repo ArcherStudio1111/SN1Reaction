@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Reactant : MonoBehaviour
 {
@@ -35,6 +36,15 @@ public class Reactant : MonoBehaviour
             originReactant.SetActive(false);
             var bulletObject = GameObject.FindGameObjectWithTag("Bullet");
             Destroy(bulletObject);
+
+            if (SceneManager.GetActiveScene().name.Equals("Level_1"))
+            {
+                GameManager.Lv1_h1Win = true;
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("Level_2"))
+            {
+                GameManager.Lv2_h1Win = true;
+            }
             S2GameWinEvent?.Invoke();
         }
         
@@ -46,6 +56,14 @@ public class Reactant : MonoBehaviour
             originReactant.SetActive(false);
             var bulletObject = GameObject.FindGameObjectWithTag("Bullet");
             Destroy(bulletObject);
+            if (SceneManager.GetActiveScene().name.Equals("Level_1"))
+            {
+                GameManager.Lv1_h2Win = true;
+            }
+            else if (SceneManager.GetActiveScene().name.Equals("Level_2"))
+            {
+                GameManager.Lv2_h2Win = true;
+            }
             S2GameWinEvent?.Invoke();
         }
     }
