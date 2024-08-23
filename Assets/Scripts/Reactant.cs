@@ -5,7 +5,11 @@ using UnityEngine;
 public class Reactant : MonoBehaviour
 {
     public float rotateSpeed;
-    
+
+    [SerializeField] private GameObject h1Product;
+    [SerializeField] private GameObject h2Product;
+    [SerializeField] private GameObject originReactant;
+
     [SerializeField] private Transform bigCenter;
     [SerializeField] private Transform axis;
     [SerializeField] private Transform h1Sphere;
@@ -24,7 +28,8 @@ public class Reactant : MonoBehaviour
             Vector3.Angle(h1Sphere.forward, bigSphere.forward) <= 177 && 
             Vector3.Angle(h1Sphere.forward, bigSphere.forward) >= 167)
         {
-            Debug.Log("h1Win");
+            h1Product.SetActive(true);
+            originReactant.SetActive(false);
             return;
         }
         
@@ -32,7 +37,8 @@ public class Reactant : MonoBehaviour
             Vector3.Angle(h2Sphere.forward, bigSphere.forward) <= 177 && 
             Vector3.Angle(h2Sphere.forward, bigSphere.forward) >= 167)
         {
-            Debug.Log("h2Win");
+            h2Product.SetActive(true);
+            originReactant.SetActive(false);
             return;
         }
 

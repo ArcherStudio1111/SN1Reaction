@@ -9,7 +9,7 @@ public class E2Target : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            transform.parent.GetComponent<Reactant>().JudgeWin(name);
+            transform.parent.parent.GetComponent<Reactant>().JudgeWin(name);
         }
     }
 }
