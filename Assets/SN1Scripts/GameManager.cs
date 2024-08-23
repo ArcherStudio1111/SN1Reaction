@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         ResumeGame();
         isWin = false;
         isShaked = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnGameWin()

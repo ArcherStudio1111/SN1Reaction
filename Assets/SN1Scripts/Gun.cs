@@ -98,6 +98,8 @@ public class Gun : MonoBehaviour
             var bulletRb = bulletClone.GetComponent<Rigidbody>();
             bulletRb.velocity = (bullsEye.position - bulletClone.position).normalized * bulletVelocity;
             aimRay.SetActive(false);
+            var reactantRb = GameObject.FindGameObjectWithTag("Reactant").GetComponent<Rigidbody>();
+            reactantRb.constraints = RigidbodyConstraints.None;
         }
     }
 

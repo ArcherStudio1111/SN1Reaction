@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bullet
   - BullsEye
+  - Reactant
+  - h1
+  - h2
   layers:
   - Default
   - TransparentFX

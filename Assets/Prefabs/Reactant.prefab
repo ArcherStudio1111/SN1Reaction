@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7501207942104472700}
   - component: {fileID: 7560721682942099393}
   - component: {fileID: 610927458397348054}
+  - component: {fileID: 6868675795935306349}
   m_Layer: 0
-  m_Name: SmallSphere (3)
-  m_TagString: Untagged
+  m_Name: h2
+  m_TagString: h2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +119,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.079375036
   m_Center: {x: 0.0000097931215, y: 5, z: 0.20528926}
+--- !u!135 &6868675795935306349
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407690977954073022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.1
+  m_Center: {x: 0.00000981873, y: 5.0000005, z: 0.2052895}
 --- !u!1 &1653896094593039190
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,10 +150,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1632004083274285901}
   - component: {fileID: 3457436518245598099}
-  - component: {fileID: 9024452359628390922}
+  - component: {fileID: 1488261824031339828}
+  - component: {fileID: 556161481932562270}
   m_Layer: 0
   m_Name: Reactant
-  m_TagString: Untagged
+  m_TagString: Reactant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +198,11 @@ MonoBehaviour:
   rotateSpeed: 50
   bigCenter: {fileID: 6824960095135752325}
   axis: {fileID: 2409766686089873163}
---- !u!54 &9024452359628390922
+  h1Sphere: {fileID: 1466574244272095395}
+  h2Sphere: {fileID: 1393510155392027316}
+  bigSphere: {fileID: 6512405549187645291}
+  incorrectSound: {fileID: 556161481932562270}
+--- !u!54 &1488261824031339828
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,6 +229,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &556161481932562270
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653896094593039190}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 537f497d4042c744fb240ce5cc17ff91, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.455
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2417707430417376205
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,9 +1114,10 @@ GameObject:
   - component: {fileID: 2632205702693237576}
   - component: {fileID: 6687856407086277334}
   - component: {fileID: 5621088784186320460}
+  - component: {fileID: 1452033535269073094}
   m_Layer: 0
-  m_Name: SmallSphere (2)
-  m_TagString: Untagged
+  m_Name: h1
+  m_TagString: h1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1096,6 +1220,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.07937506
   m_Center: {x: 0.000009070154, y: 5, z: 0.20529023}
+--- !u!135 &1452033535269073094
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214476383198841130}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.1
+  m_Center: {x: 0.000009566549, y: 5.0000005, z: 0.20528987}
 --- !u!1 &8319577933826380945
 GameObject:
   m_ObjectHideFlags: 0
