@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         BullsEye.GameWinEvent += OnGameWin;
+        Reactant.S2GameWinEvent += OnGameWin;
     }
 
     private void Start()
@@ -100,7 +101,6 @@ public class GameManager : MonoBehaviour
         ResumeGame();
         isWin = false;
         isShaked = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnGameWin()
@@ -121,5 +121,6 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         BullsEye.GameWinEvent -= OnGameWin;
+        Reactant.S2GameWinEvent -= OnGameWin;
     }
 }

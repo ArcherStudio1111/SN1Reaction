@@ -19,6 +19,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject missTextObject;
     [SerializeField] private GameObject winTextObject;
     [SerializeField] private AudioSource shootChanceSound;
+    [SerializeField] private AudioSource incorrectSound;
 
     private bool isCharging;
     private float chargeTimer;
@@ -100,6 +101,16 @@ public class Gun : MonoBehaviour
             aimRay.SetActive(false);
             var reactantRb = GameObject.FindGameObjectWithTag("Reactant").GetComponent<Rigidbody>();
             reactantRb.constraints = RigidbodyConstraints.None;
+            StartCoroutine(MissShoot());
+        }
+    }
+    
+    private IEnumerator MissShoot()
+    {
+        yield return new WaitForSeconds(4.5f);
+        if (!GameManager.isWin)
+        {
+            Restart();
         }
     }
 

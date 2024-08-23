@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Reactant : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Reactant : MonoBehaviour
     [SerializeField] private Transform bigSphere;
     [SerializeField] private AudioSource incorrectSound;
 
+    public static event Action S2GameWinEvent;
+    
     private void Update()
     {
         bigCenter.RotateAround(bigCenter.position, axis.up, rotateSpeed * Time.deltaTime);
@@ -30,7 +33,9 @@ public class Reactant : MonoBehaviour
         {
             h1Product.SetActive(true);
             originReactant.SetActive(false);
-            return;
+            var bulletObject = GameObject.FindGameObjectWithTag("Bullet");
+            Destroy(bulletObject);
+            S2GameWinEvent?.Invoke();
         }
         
         if (smallSphereName.Equals("h2") && 
@@ -39,16 +44,9 @@ public class Reactant : MonoBehaviour
         {
             h2Product.SetActive(true);
             originReactant.SetActive(false);
-            return;
+            var bulletObject = GameObject.FindGameObjectWithTag("Bullet");
+            Destroy(bulletObject);
+            S2GameWinEvent?.Invoke();
         }
-
-        incorrectSound.Play();
-        StartCoroutine(MissShoot());
-    }
-
-    private IEnumerator MissShoot()
-    {
-        yield return new WaitForSeconds(2);
-        FindFirstObjectByType<GameManager>().ResetGame();
     }
 }
