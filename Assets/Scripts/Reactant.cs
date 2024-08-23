@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class Reactant : MonoBehaviour
 {
     public float rotateSpeed;
-
+    public float wholeRotateSpeed = 5f;
+    
     [SerializeField] private GameObject h1Product;
     [SerializeField] private GameObject h2Product;
     [SerializeField] private GameObject originReactant;
@@ -24,6 +25,10 @@ public class Reactant : MonoBehaviour
     private void Update()
     {
         bigCenter.RotateAround(bigCenter.position, axis.up, rotateSpeed * Time.deltaTime);
+        if (SceneManager.GetActiveScene().name.Equals("Level_2"))
+        {
+            transform.RotateAround(transform.position, axis.up, wholeRotateSpeed * Time.deltaTime);
+        }
     }
 
     public void JudgeWin(string smallSphereName)

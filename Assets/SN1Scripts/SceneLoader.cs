@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Equals("Level_2") && GameManager.Lv2_h1Win && GameManager.Lv2_h2Win)
         {
-            //SceneManager.LoadScene("Level_2");
+            SceneManager.LoadScene("MainMenu");
         }
         else
         {
