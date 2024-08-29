@@ -34,8 +34,8 @@ public class Reactant : MonoBehaviour
     public void JudgeWin(string smallSphereName)
     {
         if (smallSphereName.Equals("h1") && 
-            Vector3.Angle(h1Sphere.forward, bigSphere.forward) <= 177 && 
-            Vector3.Angle(h1Sphere.forward, bigSphere.forward) >= 167)
+            Vector3.Angle(h1Sphere.forward, bigSphere.forward) <= 179.5f && 
+            Vector3.Angle(h1Sphere.forward, bigSphere.forward) >= 164.5f)
         {
             h1Product.SetActive(true);
             originReactant.SetActive(false);
@@ -54,8 +54,8 @@ public class Reactant : MonoBehaviour
         }
         
         if (smallSphereName.Equals("h2") && 
-            Vector3.Angle(h2Sphere.forward, bigSphere.forward) <= 177 && 
-            Vector3.Angle(h2Sphere.forward, bigSphere.forward) >= 167)
+            Vector3.Angle(h2Sphere.forward, bigSphere.forward) <= 179.5f && 
+            Vector3.Angle(h2Sphere.forward, bigSphere.forward) >= 164.5f)
         {
             h2Product.SetActive(true);
             originReactant.SetActive(false);
