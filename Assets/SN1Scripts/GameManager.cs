@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using PathologicalGames;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private SpawnPool spawnPool;
+    [SerializeField] private Image lv1_Star1;
+    [SerializeField] private Image lv1_Star2;
+    [SerializeField] private Image lv2_Star1;
+    [SerializeField] private Image lv2_Star2;
 
     private float playTime;
     private Transform spawnedBullsEye;
@@ -109,10 +114,21 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator OpenWinPanel()
     {
-        yield return new WaitForSeconds(1.3f);
-        PauseGame();
+        yield return new WaitForSeconds(1.33f);
+        //PauseGame();
         endTimeText.text = playTimeText.text;
         winPanel.SetActive(true);
+        if (SceneManager.GetActiveScene().name.Equals("Level_1"))
+        {
+            lv1_Star1.color = Lv1_h1Win ? Color.white : new Color32(47, 47, 47, 255);
+            lv1_Star2.color = Lv1_h2Win ? Color.white : new Color32(47, 47, 47, 255);
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals("Level_2"))
+        {
+            lv2_Star1.color = Lv2_h1Win ? Color.white : new Color32(47, 47, 47, 255);
+            lv2_Star2.color = Lv2_h2Win ? Color.white : new Color32(47, 47, 47, 255);
+        }
     }
 
     private void OnDisable()
