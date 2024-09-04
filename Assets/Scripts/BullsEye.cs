@@ -221,6 +221,7 @@ public class BullsEye : MonoBehaviour
 
     private void GameWin()
     {
+        rb.constraints = RigidbodyConstraints.FreezePosition;
         bulletPart.SetActive(true);
         FindFirstObjectByType<Gun>().RecycleBullets();
         StartCoroutine(ShortPauseGame());
