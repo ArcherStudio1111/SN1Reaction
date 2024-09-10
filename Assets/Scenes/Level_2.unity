@@ -4681,7 +4681,12 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: Continue
+      value: "Quit Game \n& Return to Main Page"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4689,6 +4694,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b5e77be49b6c26e4ab12343ae8494f87,
         type: 2}
+    - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_textAlignment
@@ -4818,7 +4828,7 @@ PrefabInstance:
     - target: {fileID: 1646149350857554225, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.9999847
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350857554226, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -5290,7 +5300,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 2
+  m_text: 'Level 2 of 2
 
 '
   m_isRightToLeft: 0

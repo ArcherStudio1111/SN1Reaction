@@ -4812,7 +4812,7 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: Continue
+      value: Level 2 of 2
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -5282,7 +5282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 1
+  m_text: 'Level 1 of 2
 
 '
   m_isRightToLeft: 0
