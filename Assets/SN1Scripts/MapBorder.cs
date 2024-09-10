@@ -11,7 +11,7 @@ public class MapBorder : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            gun.RecyicleBullet(other.transform);
+            //gun.RecyicleBullet(other.transform);
         }
     }
 }

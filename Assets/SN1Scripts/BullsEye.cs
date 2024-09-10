@@ -222,7 +222,7 @@ public class BullsEye : MonoBehaviour
     private void GameWin()
     {
         bulletPart.SetActive(true);
-        //FindFirstObjectByType<Gun>().RecycleBullets();
+        FindFirstObjectByType<Gun>().RecycleBullets();
         StartCoroutine(ShortPauseGame());
     }
 
