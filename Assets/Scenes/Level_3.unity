@@ -594,8 +594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de3e93c6310a9b4d9bb6677848f86e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeTolerate: 0
   playTimeText: {fileID: 143775433}
   endTimeText: {fileID: 850874242}
+  shakeText: {fileID: 0}
   settingPanel: {fileID: 1756790877}
   winPanel: {fileID: 18897592}
   spawnPool: {fileID: 260970271}
@@ -1791,6 +1793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelStartText: {fileID: 1938516784}
+  canvasLevel_4: {fileID: 0}
+  bulleyes: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2564,8 @@ MonoBehaviour:
   missTextObject: {fileID: 1317861111}
   winTextObject: {fileID: 524510248}
   shootChanceSound: {fileID: 1192987837}
+  shakeAmount: 0
+  shakeDuration: 0
 --- !u!114 &1192987836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3921,7 +3927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level 3
+  m_text: 'Level 3 of 4
 
     In real-life situation, the molecule rotates randomly. '
   m_isRightToLeft: 0
@@ -4424,7 +4430,7 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: Next Level
+      value: Level 4 of 4
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4437,6 +4443,12 @@ PrefabInstance:
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4903693719337811141, guid: b5e77be49b6c26e4ab12343ae8494f87,
+        type: 2}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_TextStyleHashCode
@@ -4455,7 +4467,7 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350453288562, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -4555,7 +4567,7 @@ PrefabInstance:
     - target: {fileID: 1646149350857554225, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 158
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350857554226, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}

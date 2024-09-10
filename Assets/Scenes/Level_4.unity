@@ -594,8 +594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de3e93c6310a9b4d9bb6677848f86e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeTolerate: 0
   playTimeText: {fileID: 143775433}
   endTimeText: {fileID: 850874242}
+  shakeText: {fileID: 0}
   settingPanel: {fileID: 1756790877}
   winPanel: {fileID: 18897592}
   spawnPool: {fileID: 260970271}
@@ -3399,6 +3401,8 @@ MonoBehaviour:
   missTextObject: {fileID: 1317861111}
   winTextObject: {fileID: 524510248}
   shootChanceSound: {fileID: 0}
+  shakeAmount: 0
+  shakeDuration: 0
 --- !u!114 &1192987836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4167,7 +4171,7 @@ MonoBehaviour:
   m_text: You are right!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5e77be49b6c26e4ab12343ae8494f87, type: 2}
-  m_sharedMaterial: {fileID: -4918373443893110478, guid: e21d9fa883341484f8393b51730ca170,
+  m_sharedMaterial: {fileID: -4903693719337811141, guid: b5e77be49b6c26e4ab12343ae8494f87,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4443,7 +4447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Level 4\nSome molecules have handedness. \nThe product you just successfully
+  m_text: "Level 4 of 4\nSome molecules have handedness. \nThe product you just successfully
     build is \neither left-handed or right-handed.\n Identify which one it is. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5e77be49b6c26e4ab12343ae8494f87, type: 2}
@@ -6942,7 +6946,12 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_text
-      value: Main Menu
+      value: "Quit Game \n& Return to Main Page"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
@@ -6952,9 +6961,20 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
+        type: 3}
       propertyPath: m_textAlignment
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4903693719337811141, guid: b5e77be49b6c26e4ab12343ae8494f87,
+        type: 2}
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_TextStyleHashCode
@@ -6973,7 +6993,7 @@ PrefabInstance:
     - target: {fileID: 1646149350411283892, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1646149350453288562, guid: 047d8ae5143534434ae148de9defea6b,
         type: 3}
