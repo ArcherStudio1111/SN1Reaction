@@ -12,6 +12,8 @@ public class Reactant : MonoBehaviour
     [SerializeField] private GameObject h1Product;
     [SerializeField] private GameObject h2Product;
     [SerializeField] private GameObject originReactant;
+    [SerializeField] private Transform byProduct_1;
+    [SerializeField] private Transform byProduct_2;
 
     [SerializeField] private Transform bigCenter;
     [SerializeField] private Transform axis;
@@ -51,6 +53,7 @@ public class Reactant : MonoBehaviour
                 GameManager.Lv2_h1Win = true;
             }
             S2GameWinEvent?.Invoke();
+            GetByProduct();
         }
         
         if (smallSphereName.Equals("h2") && 
@@ -70,6 +73,21 @@ public class Reactant : MonoBehaviour
                 GameManager.Lv2_h2Win = true;
             }
             S2GameWinEvent?.Invoke();
+            GetByProduct();
         }
+    }
+
+    private void GetByProduct()
+    {
+        byProduct_1.gameObject.SetActive(true);
+        byProduct_2.gameObject.SetActive(true);
+        byProduct_1.SetParent(null);
+        byProduct_2.SetParent(null);
+        var rb1 = byProduct_1.GetComponent<Rigidbody>();
+        var rb2 = byProduct_2.GetComponent<Rigidbody>();
+        rb1.constraints = RigidbodyConstraints.None;
+        rb2.constraints = RigidbodyConstraints.None;
+        rb1.velocity = new Vector3(-1, -1, 1) * 0.5f;
+        rb2.velocity = new Vector3(1, 1, 1) * 0.5f;
     }
 }

@@ -86,6 +86,7 @@ public class Gun : MonoBehaviour
         bulletClone.localRotation = Quaternion.Euler(-10f, 0, 0);
         var bulletRb = bulletClone.GetComponent<Rigidbody>();
         bulletRb.velocity = Vector3.zero;
+        bulletRb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void Shoot()
@@ -97,6 +98,7 @@ public class Gun : MonoBehaviour
             var bullsEye = GameObject.FindGameObjectWithTag("BullsEye").transform;
             bulletClone.LookAt(bullsEye.position);
             var bulletRb = bulletClone.GetComponent<Rigidbody>();
+            bulletRb.constraints = RigidbodyConstraints.None;
             bulletRb.velocity = (bullsEye.position - bulletClone.position).normalized * bulletVelocity;
             aimRay.SetActive(false);
             var reactantRb = GameObject.FindGameObjectWithTag("Reactant").GetComponent<Rigidbody>();
